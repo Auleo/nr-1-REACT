@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Dzielo =() =>   {                    //twoże komponent funkcyjny
+const Dzielo = props =>   {                    //twoże komponent funkcyjny
 return (
-  <div>
-    <input type="text" value={ props.value } placeholder = "Wpisz miasto" />
+  //po klikniciu wyszukanie miasta w impucie
+  <div onSubmit = {props.submit}>
+    <input type="text" value={ props.value } onChange={props.value} 
+    placeholder = "Wpisz miasto" />
     <button> Szukaj miasta :</button>
   </div>
 )
