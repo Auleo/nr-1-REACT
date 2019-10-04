@@ -31,9 +31,9 @@ class App extends Component {        // komponent
     const API = 'http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=05508bb378ad891b493b0c886cca7a5 '
 
     fetch (API)  
-      .then(response => console.log(response.ok) ) {
-
-      }
+      .then(response => { if (response.ok) return response }
+  
+      .then( response => response.json())
 // catch asekuracyjnie pokaże, gdy coś pójdzie nie tak
         .catch(err => console.log(err))
 
