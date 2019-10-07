@@ -22,6 +22,7 @@ class App extends Component {        // komponent //     Położeniu geolokaliza
       sunset:'',
       error:''
     }
+  
 
   handleInputChange =(e) => {
     this.setState({
@@ -34,10 +35,11 @@ class App extends Component {        // komponent //     Położeniu geolokaliza
     console.log("Potwiedzono");
     const API = 'http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=&{APIKey}$units=metric';
 
-    fetch (API)  
-      .then(response => { if (response.ok) return response }
-      // Error('No Error no')
-      )
+    fetch (API)  // obietnica ,która bdzie czekać na roztrzygnicie 
+      .then( response => { if (response.ok) { return response
+      }
+       throw Error('No Error no')
+      })
       .then(response => response.json() )
       .then( () =>this.setState({ error: false}) )
       .catch(error => { console.log(error); this.setState({ error:false })  
@@ -60,16 +62,18 @@ class App extends Component {        // komponent //     Położeniu geolokaliza
   handleCityChang = e => {
     this.setState({
       value:e.target.value
-    })
+    });
   } 
-    
+  
+/*
 handleCitySubmit = e => {
   e.preventDefault()
   console.log('potwierdzenie');
-  const API='appid=05508bb378ad891b493b0c886cca7a57'
+  const API='appid=05508bb378ad891b493b0c886cca7a57' ;
 }
+*/
 
-render() {
+render(); {
   return ( 
   <div className ="App" > 
         <Dzielo 
