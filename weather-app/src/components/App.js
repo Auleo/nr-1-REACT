@@ -1,23 +1,26 @@
 import React, { Component } from 'react';
-import Dzielo from './Dzielo'
-import Result from './Result'
-import 'axios' from axios;
+import Dzielo from './Dzielo';
+import Result from './Result';
+//import logo form'../logo.svg;';
+// import 'axios' from axios;
 import './App.css';
-const APIKey = '05508bb378ad891b493b0c886cca7a57'
-class App extends Component {        // komponent
 
-    state = {
+const APIKey = '05508bb378ad891b493b0c886cca7a57'
+class App extends Component {        // komponent //     Położeniu geolokalizacyjnym miasta (latitude, longitude)
+
+  state = {
       value:'',
       city: '',
-      data: '',
- //     Położeniu geolokalizacyjnym miasta (latitude, longitude)
-      wilgotnosc:'',
+      geolo:'',
+      data:'',
+      wet:'',
       temp:'',
       rain:'',
-      press: '',
+      press:'',
       wind:'',
-      error:'',
-
+      sunrise:'',
+      sunset:'',
+      error:''
     }
 
   handleInputChange =(e) => {
@@ -33,26 +36,51 @@ class App extends Component {        // komponent
 
     fetch (API)  
       .then(response => { if (response.ok) return response }
-      //throw Error('No Error no')
-  })
-      .then( response => response.json() )
-      .then(data => console.log(data))
-  //   .catch(error => console.log(error))
-// catch asekuracyjnie pokaże, gdy coś pójdzie nie tak
+      // Error('No Error no')
+      )
+      .then(response => response.json() )
+      .then( () =>this.setState({ error: false}) )
+      .catch(error => { console.log(error); this.setState({ error:false })  
+      .then(data =>{
+        const date = new Date().toLocaleString()
+        this.setState({
+          
+          city: '',
+          geolo:'',
+          data:'',
+          wet:'',
+          temp:'',
+          rain:'',
+          press:'',
+          wind:'',
+          error:'',
+        
+      })
+
+  handleCityChang = e => {
+    this.setState({
+      value:e.target.value
+    })
+  } 
+    
+handleCitySubmit = e => {
+  e.preventDefault()
+  console.log('potwierdzenie');
+  const API='appid=05508bb378ad891b493b0c886cca7a57'
 }
 
-
-  render () {
-      return ( 
-        <div className="App">
-          <Dzielo value ={this.state.value }
-            change={this.handleInputChange} 
-              submit={this.handleCitySubmit} 
+render() {
+  return ( 
+  <div className ="App" > 
+        <Dzielo 
+          value = {this.state.value }
+          change={this.handleInputChange} 
+          submit={this.handleCitySubmit} 
         />
-
-          <Result />
-        </div>
-      );
+        <Result error={this.state.error} />
+          
+  </div>
+        );
     }
-  
+
 export default App;
