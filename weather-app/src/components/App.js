@@ -4,10 +4,11 @@ import Result from './Result';
 //import logo form'../logo.svg;';
 // import 'axios' from axios;
 import './App.css';
+//import PropTypes from 'prop-types'
 
-const APIKey = '05508bb378ad891b493b0c886cca7a57'
-class App extends Component {        // komponent //     Położeniu geolokalizacyjnym miasta (latitude, longitude)
+const APIKey ='05508bb378ad891b493b0c886cca7a57';
 
+class App extends Component {     
   state = {
       value:'',
       city: '',
@@ -22,9 +23,8 @@ class App extends Component {        // komponent //     Położeniu geolokaliza
       sunset:'',
       error:''
     }
-  
-
-  handleInputChange =(e) => {
+    
+    handleInputChange =(e) => {
     this.setState({
       value: e.target.value
     })
@@ -32,16 +32,24 @@ class App extends Component {        // komponent //     Położeniu geolokaliza
 
   handleCitySubmit = e => {
     e.preventDefault()
-    console.log("Potwiedzono");
+    console.log('Potwiedzono');
     const API = 'http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=&{APIKey}$units=metric';
 
-    fetch (API)  // obietnica ,która bdzie czekać na roztrzygnicie 
-      .then( response => { if (response.ok) { return response
-      }
-       throw Error('No Error no')
-      })
+    fetch (API)  // obietnica ,która bedzie czekać na roztrzygnicie 
+      .then( response => { 
+        if (response.ok) { 
+          return response
+        }
+        else {
+          throw Error('No Error no')
+        }
+    })
       .then(response => response.json() )
-      .then( () =>this.setState({ error: false}) )
+
+      .then (data => {
+        console.log(data);
+       } )
+    /*  .then( () =>this.setState({ error: false}) )
       .catch(error => { console.log(error); this.setState({ error:false })  
       .then(data =>{
         const date = new Date().toLocaleString()
@@ -57,23 +65,11 @@ class App extends Component {        // komponent //     Położeniu geolokaliza
           wind:'',
           error:'',
         
-      })
+      })  */
+  }  
 
-  handleCityChang = e => {
-    this.setState({
-      value:e.target.value
-    });
-  } 
-  
-/*
-handleCitySubmit = e => {
-  e.preventDefault()
-  console.log('potwierdzenie');
-  const API='appid=05508bb378ad891b493b0c886cca7a57' ;
-}
-*/
 
-render(); {
+render() {
   return ( 
   <div className ="App" > 
         <Dzielo 
@@ -85,6 +81,6 @@ render(); {
           
   </div>
         );
+      }
     }
-
-export default App;
+      export default App;
