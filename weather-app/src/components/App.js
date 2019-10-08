@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import Dzielo from './Dzielo';
+import Formul from './Formul';
 import Result from './Result';
-//import logo form'../logo.svg;';
+import Weather from './Weather';
+
+import Tytu from './Tytu';
 // import 'axios' from axios;
 import './App.css';
 //import PropTypes from 'prop-types'
@@ -24,7 +27,8 @@ class App extends Component {
       error:''
     }
     
-    handleInputChange =(e) => {
+    
+  handleInputChange =(e) => {
     this.setState({
       value: e.target.value
     })
@@ -48,7 +52,7 @@ class App extends Component {
 
       .then (data => {
         console.log(data);
-       } )
+      } )
     /*  .then( () =>this.setState({ error: false}) )
       .catch(error => { console.log(error); this.setState({ error:false })  
       .then(data =>{
@@ -71,7 +75,7 @@ class App extends Component {
 
 render() {
   return ( 
-  <div className ="App" > 
+  <div className ="App"> 
         <Dzielo 
           value = {this.state.value }
           change={this.handleInputChange} 
@@ -83,4 +87,5 @@ render() {
         );
       }
     }
+
       export default App;

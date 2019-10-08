@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 //import './index.css';
 import App from './components/App';
+//import LifeCycleOfReactComponent from './lifecycleOfComponent'
 import * as serviceWorker from './serviceWorker';
-
+//imie/ nazwa komponentu + miejsce jego pochodzenia
 ReactDOM.render(<App />, document.getElementById('root'));
 
 

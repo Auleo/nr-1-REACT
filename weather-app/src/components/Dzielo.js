@@ -13,4 +13,14 @@ const Dzielo = props =>   {                    //twoże komponent funkcyjny
   )
 }
 
+const button =({onClick, text}) =>{
+  return (
+    <div className="form-group">
+      <button onClick={onClick} className="btn btn-primary btn-sm from-content"> 
+      </button>
+
+    </div>
+  )
+}
+export {button}
 export default Dzielo              
