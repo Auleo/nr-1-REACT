@@ -57,7 +57,7 @@ class App extends React.Component {
       )
     }
   };
-
+/*
 <Row>
 <Col m={6} s={12}>
 <Collection header="First Names">
@@ -75,6 +75,6 @@ Alvin
 </CollectionItem>
 </Collection>
 </Col>
-</Row>
+</Row>  */ 
 export default App;
 
