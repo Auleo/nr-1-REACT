@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import Dzielo from './Dzielo';
 import Formul from './Formul';
-import { Container,Button, Alter} from 'reactstrap';
-import './App.css';
+import Weather from './Weather';
+//import {Bar} from './Sections';
+//import { Container,Button, Alter} from 'reactstrap';
+import Tytu from "./Tytu";
+import Appcs from './Appcs.css';
+//import App from './App';
 
 
 
@@ -15,17 +19,18 @@ class App extends React.Component {
     City: undefined,
     humidity: undefined,
     description: undefined,
-    error:undefined
+    error:undefined,
     
   }
 
     getWeather = async ( e ) => { 
 
       e.preventDefault();
-    
-      const city = e.target.elements.name.miasto.value;
-      const geolo = e.target.elements.name.geolo.value;
-      const wet = e.target.elements.name.wet.value;
+      
+      //const city , geolo, wet, temp, press, rain, sunrise = e.target.elements.name.${state}.value;
+      const city = e.target.elements.miasto.value;
+      const geolo = e.target.elements.geolo.value;
+      const wet = e.target.elements.wet.value;
       const temp = e.target.elements.name.temp.value;
       const press = e.target.elements.name.press.value;
       const rain = e.target.elements.name.rain.value;
@@ -52,11 +57,12 @@ class App extends React.Component {
         <div>
           <Dzielo getWeather={this.getWeather} /> 
           <Formul />
+          <Weather />
         </div>
       )
     }
 
-  }
+  };
 
 export default App;
 

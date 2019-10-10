@@ -1,13 +1,12 @@
 import React from 'react';
 
-//twór komp funkcyjny zastąpię   input type=
+//twór komp funkcyjny zastąpię   input type=              <input type="text" value={ props.value }  
+     // onChange={props.value} 
+     // placeholder = ""  />     8 line
 const Dzielo = props =>   {              
   return (                           
   <form onSubmit={props.submit} >
-      <input type="text" value={ props.value }  
-      onChange={props.value} 
-      placeholder = "" 
-    />
+     
     <div>
       <h3>Wyszukiwarka Pogody</h3> 
       <p>Dowiedz się jaka jest temperatura i wiele więcej</p>
