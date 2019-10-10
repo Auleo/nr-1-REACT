@@ -5,10 +5,9 @@ class Formul extends React.Component {
   render() {
 
     return (
-      <form> onSubmit={this.props.getWeather} >
-        <input type="text" name="city" placeholder="City" />
-        <input type="text" name="Country" placeholder="Country" />
-        <input type="text" name="geolo" placeholder="geolo" />
+      <form onSubmit={this.props.getWeather} >
+        <input type="text" name="city" placeholder="City" /> 
+        <input type="text" name="geolo" placeholder="Geoeo" />
         <input type="text" name="wet" placeholder="wet" />
         <input type="text" name="temp" placeholder="temp" />
         <input type="text" name="press" placeholder="press" />
@@ -16,9 +15,12 @@ class Formul extends React.Component {
         <input type="text" name="wind" placeholder="wind" />
         <input type="text" name="sunrise" placeholder="sunrise" />
 
-        <button>Jaka jest pogoda ?</button>
+       >
+        <button> Szukaj miasta :</button>
 
-      </form>
+      
+
+      </form>  
     );
   }
 };

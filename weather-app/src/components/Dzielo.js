@@ -1,23 +1,26 @@
 import React from 'react';
 
-const Dzielo = props =>   {                    //twoże komponent funkcyjny
+//twór komp funkcyjny zastąpię   input type=
+const Dzielo = props =>   {              
   return (                           
   <form onSubmit={props.submit} >
-      <input type="text" value={ props.value } 
+      <input type="text" value={ props.value }  
       onChange={props.value} 
-      placeholder = "Wpisz miasto" 
+      placeholder = "" 
     />
-    
-      <button> Szukaj miasta :</button>
+    <div>
+      <h3>Wyszukiwarka Pogody</h3> 
+      <p>Dowiedz się jaka jest temperatura i wiele więcej</p>
+    </div>
+
   </form>
   )
 }
-
-const button =({onClick, text}) =>{
+const button =({onClick, tekst}) => {
   return (
     <div className="form-group">
-      <button onClick={onClick} className="btn btn-primary btn-sm from-content"> 
-      </button>
+    <button onClick={onClick} className="btn btn-primary btn-sm from-content"> 
+    </button>
 
     </div>
   )
