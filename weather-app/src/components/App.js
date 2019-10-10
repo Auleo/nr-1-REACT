@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Tytu from './Tytu';
 import Dzielo from './Dzielo';
 import Formul from './Formul';
 import { Container,Button, Alter} from 'reactstrap';
@@ -11,8 +10,8 @@ const APIKey ='05508bb378ad891b493b0c886cca7a57';
 
 class App extends React.Component {  
 
-  state ={
-    temperature:unescape,
+  state = {
+    temperature: undefined,
     City: undefined,
     humidity: undefined,
     description: undefined,
@@ -24,7 +23,7 @@ class App extends React.Component {
 
       e.preventDefault();
     
-      const city = e.target.elements.name.city.value;
+      const city = e.target.elements.name.miasto.value;
       const geolo = e.target.elements.name.geolo.value;
       const wet = e.target.elements.name.wet.value;
       const temp = e.target.elements.name.temp.value;
@@ -33,6 +32,7 @@ class App extends React.Component {
       const sunrise = e.target.elements.name.sunrise.value;
       
       const API_call = await fetch('http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=&{APIKey}$units=metric');
+      
       const data = await API_call.json();  //JSON.stringify (value: any, space: any);
 
       console.log(data);
