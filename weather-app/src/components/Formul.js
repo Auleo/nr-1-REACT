@@ -6,12 +6,26 @@ class Formul extends React.Component {
     return (
       <form onSubmit={this.props.getWeather} >
         <input type="city" placeholder="Miasto"/>
-        <input type="text" name="city" placeholder="City.."/>
+        <input type="geolo" name="geolo" placeholder=".."/>
         <button>Wyszukaj miasta </button>
 
       </form>  
     );
   }
 };
+class RegistrationForm extends Component{
+  constructor(props){
+    super(props)
 
-export default Formul;
+    this.state ={
+      'temperature':'',
+      'City':'',
+      'humidity':'',
+      'geolo':'',
+      'error': '',
+      
+    }
+  }
+
+}
+export default Formul; 

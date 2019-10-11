@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
+//import React, { Component } from 'react';
 import Dzielo from './Dzielo';
 import Formul from './Formul';
 import Weather from './Weather';
-//import {Bar} from './Sections';
-//import { Container,Button, Alter} from 'reactstrap';
 import Tytu from "./Tytu";
 import Appcs from './Appcs.css';
 //import App from './App';
 
-const API_Key ='05508bb378ad891b493b0c886cca7a57';
+const APIKey ='05508bb378ad891b493b0c886cca7a57';
 
 class App extends React.Component {  
   state = {
@@ -23,18 +21,17 @@ class App extends React.Component {
   getWeather = async ( e ) => { 
     e.preventDefault();
     //const city , geolo, wet, temp, press, rain, sunrise = e.target.elements.name.${state}.value;
-    const city = e.target.elements.miasto.value;
+    const city = e.target.elements.city.value;    
     const geolo = e.target.elements.geolo.value;
-    const wet = e.target.elements.wet.value;
-    const temp = e.target.elements.name.temp.value;
-    const press = e.target.elements.name.press.value;
-    const rain = e.target.elements.name.rain.value;
-    const sunrise = e.target.elements.name.sunrise.value;
+    //const wet = e.target.elements.wet.value;
+    //const temp = e.target.elements.name.temp.value;
+    //const press = e.target.elements.name.press.value;
+    //const rain = e.target.elements.name.rain.value;
+    //const sunrise = e.target.elements.name.sunrise.value;
     
-    const API_call = await fetch('http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=&{API_Key}$units=metric');
+    const API_call = await fetch('http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=&{APIKey}$units=metric');
     
     const data = await API_call.json();  //JSON.stringify (value: any, space: any);
-
     console.log(data);
     this.setState({
 
