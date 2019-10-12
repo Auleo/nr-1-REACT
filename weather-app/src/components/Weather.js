@@ -15,11 +15,9 @@ class Weather extends React.Component {
 };
 
 /*
-class Weather extends Components{
-  constructor(props){
-    super(props)
+    super()
 
-    this.state ={
+    this.state = {
       'temperature':'',
       'City':'',
       'humidity':'',
@@ -33,9 +31,6 @@ class Weather extends Components{
       'rain':'',
       'sunrise':'',
       'error':'err',
-      
-    }
-  }
 
 } */
 export default Weather; 
