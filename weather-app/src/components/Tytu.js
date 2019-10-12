@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Tytu from '.components/Tytu';
 
 class Tytu extends React.Component {
 

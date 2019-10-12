@@ -1,77 +1,33 @@
-//import React, { Component } from 'react';
+import React, { Component } from 'react';
 import Dzielo from './Dzielo';
 import Formul from './Formul';
 import Weather from './Weather';
-import Tytu from "./Tytu";
-import Appcs from './Appcs.css';
-//import App from './App';
-
-const APIKey ='05508bb378ad891b493b0c886cca7a57';
+import Appcs  from './Appcs.css';
 
 class App extends React.Component {  
-  state = {
-    temperature: undefined,
-    City: undefined,
-    humidity: undefined,
-    description: undefined,
-    error:undefined,
-    
-  }
-
-  getWeather = async ( e ) => { 
+  //getWeather =this.getWeather.bind(this)
+  // musze to zainicjalizować w tym mscu 
+  
+  getWeather = async ( e ) => {
     e.preventDefault();
-    //const city , geolo, wet, temp, press, rain, sunrise = e.target.elements.name.${state}.value;
-    const city = e.target.elements.city.value;    
-    const geolo = e.target.elements.geolo.value;
-    //const wet = e.target.elements.wet.value;
-    //const temp = e.target.elements.name.temp.value;
-    //const press = e.target.elements.name.press.value;
-    //const rain = e.target.elements.name.rain.value;
-    //const sunrise = e.target.elements.name.sunrise.value;
-    
-    const API_call = await fetch('http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=&{APIKey}$units=metric');
-    
+
+    const API_call = await fetch('http://api.openweathermap.org/data/2.5/weather?q=${city},${temperature}&appid=&{APIKey}$units=metric');
     const data = await API_call.json();  //JSON.stringify (value: any, space: any);
     console.log(data);
-    this.setState({
-
-    temperature:data.main.temp,
-    City: data.name,
-    humidity: undefined,
-    description: undefined,
-    error:undefined
-    });
-
+    
   }
 
     render () {
       return (
         <div>
           <Dzielo /> 
-          <Formul  getWeather={this.getWeather}/>
-          <Weather />
+          <Formul  getWeather={this.getWeather} />
+          <Weather getWeather={this.getWeather}/>
+      
         </div>
       )
     }
   };
-/*
-<Row>
-<Col m={6} s={12}>
-<Collection header="First Names">
-<CollectionItem>
-Alvin
-</CollectionItem>
-<CollectionItem>
-Alvin
-</CollectionItem>
-<CollectionItem>
-Alvin
-</CollectionItem>
-<CollectionItem>
-Alvin
-</CollectionItem>
-</Collection>
-</Col>
-</Row>  */ 
+
 export default App;
 

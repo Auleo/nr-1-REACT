@@ -9,7 +9,6 @@ const Dzielo = props =>   {
   return (    
     
   <form onSubmit={props.submit} >
-
     <div>
       <h3>Wyszukiwarka Pogody</h3> 
       <p>Dowiedz się jaka jest temperatura i wiele więcej</p>
@@ -18,7 +17,7 @@ const Dzielo = props =>   {
   </form>
   )
 }
-const button =({onClick, tekst}) => {
+const button =({onClick}) => {
   return (
     <div className="form-group">
     <button onClick={onClick} className="btn btn-primary btn-sm from-content"> 
