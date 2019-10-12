@@ -1,9 +1,14 @@
 import React from 'react';
 
-const Form = () => {
+
+//komponent funkcyjny = bo bez deklaracji class/ value musi sie połączyć i przekazać wartość
+const Form = props => {
   return (
-    <div>Formularz</div>
+    <form>
+    <input type="text" value={props.value}  />
+    <button>Wyszukiwanie miasta</button>
+   </form>
   )
 }
-  )
-}
+
+export default Form
