@@ -4,6 +4,8 @@ import React, { Component }  from 'react';
 import Form from './Form';
 import Wynik from './Wynik';
 import './App.css';
+import {} from './section' ;
+import { timeout } from 'q';
 
 //appid='05508bb378ad891b493b0c886cca7a57'
      //  = &appid=05508bb378ad891b493b0c886cca7a57
@@ -28,17 +30,16 @@ class App extends Component {
     sunset:'',
     press:'',
     rain:'',
-    error:'err',
-  
+    error:'err',   
     
   }
-
 
   handleInputChange = e => {
     this.setState({
       value:e.target.value
     })
   }
+
 
   handleCitySubmit = e => {
     e.preventDefault()
@@ -53,21 +54,35 @@ class App extends Component {
         }
         throw Error("U uu nie udało sie")
       })
+
       .then (response => response.json())
       .then (data => {
-        this.setState({
-          error:false
+        const time = new data().toLocalString()
+          this.seState ({
+            error:false,
+            data: time,
+            temp:'',
+            pressure:'',
+            wind:'',
+            humidity:'',
+            geolo:'',
+            description:'',
+            wet:'',
+            sunrise:data.sys.sunrise,
+            sunset:'',
+            press:'',
+            rain:'',
+            city:'',
+          })
         })
-      })
-      .catch(error=> { 
-        console.log(error) ;
+      .catch(err => { 
+        console.log(err);
         this.setState({
           error:true
-        })
+        })   
       })
-  
-      .then(response=> console.log(response.ok) )
-      .catch(err => console.log( err))
+        .then(response=> console.log(response.ok) )
+      .catch(err => console.log(err))
         
 
   }
@@ -78,7 +93,7 @@ class App extends Component {
         <Form value={this.state.value} 
         change = {this.handleInputChange } 
         submit={this.handleCitySubmit } /> 
-        <Wynik error={this.state.error}/>
+        <Wynik err={this.state.err}/>
     </div>
     );
   }

@@ -2,20 +2,17 @@ import React from 'react';
 
 
 //komponent funkcyjny = bo bez deklaracji class/ value musi sie połączyć i przekazać wartość
-
-
-
 const Form = props => {
   return (
     <form onSubmit = {props.submit} >
     <input type="text"
     value={props.value}  
     onChange={props.change}
-    placeholder="Wpisz miasto"
+    placeholder="Miasto"
     
     />
-    
-    <button>Wyszukiwanie miasta</button>
+
+    <button>Szukaj</button>
   </form>
   )
 }
