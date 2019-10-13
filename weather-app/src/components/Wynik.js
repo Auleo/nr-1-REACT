@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Wynik =() => {
+const Wynik = props => {
+
   return (
-    <div> Miasto..pogoda</div>
+    <div>{String( props.error ) }</div>
+    
   );
 }
 
-export default Wynik
+export default Wynik;
