@@ -1,0 +1,10 @@
+body{
+  hls{
+    background-color: 0,100,100;
+  }
+
+  Form{
+    word-wrap:break-word;
+  }
+
+}

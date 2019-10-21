@@ -1,102 +1,98 @@
-import React, { Component }  from 'react';
-//import logo from '../logo.svg'; //   // eslint-disable-next-line no-undef  /value jest moją dowolną nazwą
-//value:e.target.value do mego value przypisuje sobie event { skrut e ;)  i jak mi ta metoda ustawia to mi poniżej zrenderuje }
+import React from 'react';
 import Form from './Form';
 import Wynik from './Wynik';
+import Head form './Head.';
 import './App.css';
-import {} from './section' ;
-import { timeout } from 'q';
 
-//appid='05508bb378ad891b493b0c886cca7a57'
-     //  = &appid=05508bb378ad891b493b0c886cca7a57
+const api_key = "05508bb378ad891b493b0c886cca7a57";
 
-
-const APIkey ='05508bb378ad891b493b0c886cca7a57'
-
-class App extends Component {
-
+class App extends React.Component {
   state = {
-    value: '',
-    data: '',
-    city:'',
-    temp:'',
-    pressure:'',
-    wind:'',
-    humidity:'',
-    geolo:'',
-    description:'',
-    wet:'',
-    sunrise:'',
-    sunset:'',
-    press:'',
-    rain:'',
-    error:'err',   
+    value: "",
+    data: "",
+    city:"",
+    temp:"",
+    pressure:"",
+    wind:"",
+    humidity:"",
+    geolo:"",
+    description:"",
+    wet:"",
+    sunrise:"",
+    sunset:"",
+    press:"",
+    rain:"",
+    error:"err",   
     
   }
+  getWeather = async (e) => {
+    const city =e.target.elements.city.value;
+    const country =e.target.elements.country.value;
+    e.preventDefault();
+    const api_call = await fetch (`http://
+    api.openweathermap.org/data/2.5/weather?q=${city},
+    ${country}$units=imperial$appid=${api_key}`);
 
-  handleInputChange = e => {
-    this.setState({
-      value:e.target.value
-    })
-  }
-
-
-  handleCitySubmit = e => {
-    e.preventDefault()
-    const API =
-    'http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&APPID=${APIkey}$units=matric';
-    //api.openweathermap.org/data/2.5/weather?q={this.state.value}
-
-    fetch(API)
-      .then(response => {    
-      if (response.ok) {
-        return response
-        }
-        throw Error("U uu nie udało sie")
-      })
-
-      .then (response => response.json())
-      .then (data => {
-        const time = new data().toLocalString()
-          this.seState ({
-            error:false,
-            data: time,
-            temp:'',
-            pressure:'',
-            wind:'',
-            humidity:'',
-            geolo:'',
-            description:'',
-            wet:'',
-            sunrise:data.sys.sunrise,
-            sunset:'',
-            press:'',
-            rain:'',
-            city:'',
-          })
+    const response =await api_call.json();
+    console.log(response);
+    if(city && country){
+      this.setState({
+        temperature: response.main.temperature,
+        city:response.name,
+        humidity:response.main.humidity,
+        pressure:response.main.pressure,
+        temperature:respone.main.temperature,
+        wind:response.main.wind,
+        geolo:response.main.geolo,
+        description: response.weather[0].description,
+        wet:response.main.wet,
+        sunrise:response.main.sunrise,
+        sunset:response.main.sunset,
+        pressure:response.main.pressure,
+        rain:response.main.rain,
+        icon: response.weather[0].icon,
+        description:response.weather[0].description,
+        error:""
         })
-      .catch(err => { 
-        console.log(err);
-        this.setState({
-          error:true
-        })   
-      })
-        .then(response=> console.log(response.ok) )
-      .catch(err => console.log(err))
-        
-
   }
-  render() {
-    return (
-      <div className="App">
-        <h1>Aplikacja Pogodowa </h1>
-        <Form value={this.state.value} 
-        change = {this.handleInputChange } 
-        submit={this.handleCitySubmit } /> 
-        <Wynik err={this.state.err}/>
-    </div>
-    );
-  }
+  else
+  this.setState({
+    error:"Pole do wypełnienia"
+  })
 }
 
-export default App;
+
+render() {
+  return(
+    <div className="container">
+      <div className="header">
+        <Head/>
+        </div>
+        <div className="form">
+          <Form loadWeather = {this.getWeather}  />
+          </div>
+            <div className="weather">
+              <Wynik
+              temperature={this.state.temperature}
+              city={this.state.city}
+              humidity={this.state.humidity}
+              pressure={this.state.pressure}
+              temperature={this.state.temperature}
+              wind={this.state.wind}
+              geolo={this.state.geolo}
+              wet={this.state.wet}
+              sunrise={this.state.sunrise}
+              sunset={this.state.sunset}
+              pressure={this.state.pressure}
+              rain={this.state.rain}
+              icon={this.state.icon}
+              description={this.state.description}
+              error={this.state.error} />
+
+          </div>
+      </div>
+    
+  ) 
+}
+
+export default App 

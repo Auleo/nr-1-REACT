@@ -1,21 +1,14 @@
 import React from 'react';
 
-
-//komponent funkcyjny = bo bez deklaracji class/ value musi sie połączyć i przekazać wartość
-const Form = props => {
-  return (
-    <form onSubmit = {props.submit} >
-    <input type="text"
-    value={props.value}  
-    onChange={props.change}
-    placeholder="Miasto"
+const Form = (props) => {
+  return ( 
+    <form onSubmit = {props.loadWeather} >
+    <input type="text" name="city" placeholder="Wybór miasta"/> 
+    <input type="text" name="country" placeholder="Wybór dzielnicy" />
     
-    />
-
     <button>Szukaj</button>
   </form>
   )
 }
-// musze kontrolować co value bedzie miało dzieki handleInput{doobsługi zmiany inputa}
 
 export default Form
