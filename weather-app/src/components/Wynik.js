@@ -8,7 +8,7 @@ const Wynik = (props) => {
       {props.temperature && <p>Temperatura:
       {props.temperature} </p>}
       {props.humidity && <p>Zachmurzenie: {props.humidity } 
-      </p>}
+      </p>}         
 {props.pressure &&<p> Ciśnienie: {props.pressure} </p> }
       {props.icon && <img src={`http://openweathermap.org/img/w/${props.icon}.png`} alt="Ikona pogody" />}
       {props.description && <p> Wilgoć: {props.description} </p>}

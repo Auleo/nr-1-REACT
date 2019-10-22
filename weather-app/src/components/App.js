@@ -70,7 +70,7 @@ render() {
           <SearchCity loadWeather = {this.getWeather}  />
           </div>
             <div className="weather">
-              <Wynik
+              <Wynik       
                 temperature={this.state.temperature}
                 city={this.state.city}
                 humidity={this.state.humidity}
@@ -82,8 +82,7 @@ render() {
                 icon={this.state.icon}
                 description={this.state.description}
                 error={this.state.error} />
-
-          </div>
+         </div>
       </div>    
   ) 
 }

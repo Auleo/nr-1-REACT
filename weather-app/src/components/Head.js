@@ -5,7 +5,7 @@ const Head = (props) =>{
   <div>
     <h1>
       Jaka jest Pogoda
-    </h1>
+    </h1>   
     <h3>
       w mieście
     </h3>
