@@ -1,27 +1,17 @@
 import React from 'react';
 
-
-const Heading =(props) =>{
+const Head =(props) =>{
   return(
   <div>
     <h1>
-      JAka Pogoda
+      Jaka jest Pogoda
     </h1>
     <h3>
-      pogodda w mieście
+      w mieście
     </h3>
   </div>
 )
 }
 
-const container = ()=> {
-  return (<h1>container</h1>)
-}
 
-const weather = ()=> {
-  return (<h1>weather</h1>)
-}
-
-export {
-  container, weather
-}
+export default Head;
