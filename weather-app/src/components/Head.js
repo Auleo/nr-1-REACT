@@ -4,6 +4,7 @@ const Head = (props) =>{
   return(
   <div>
     <h1>
+      
       Jaka jest Pogoda
     </h1>   
     <h3>
