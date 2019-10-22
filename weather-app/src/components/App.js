@@ -76,6 +76,7 @@ render() {
               wet={this.state.wet}
               sunrise={this.state.sunrise}
               sunset={this.state.sunset}
+
               rain={this.state.rain}
               icon={this.state.icon}
               description={this.state.description}

@@ -1,9 +1,33 @@
 body{
-    background-color:0, 100,100;
-  
+  background-size: cover;
+  margin-top:10px;
+  background-image:url("https://tvnmeteo.tvn24.pl/img/big_map_1_rebrand_V3_new.png?v2 ");
+  background-repeat:no-repeat ;
 
-  Form{
+
+}
+.container{
+  width: 80%;
+  background-color: rgba(167, 207, 205, 0.904);
+  border: 1px solid ;
+  box-shadow: 3px 2px rgb(183, 225, 236);
+  text-align: center;
+  margin: 25% auto;
+  
+}
+
+.Head {
+  background-color: rgb(31, 150, 144);
+  margin:5px 5px;
+  
+}
+
+Wynik {
+  background-color: rgb(245, 178, 239);
+}
+
+Form{
     word-wrap:break-word;
   }
 
-}
+
