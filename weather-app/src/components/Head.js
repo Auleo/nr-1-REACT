@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Head =(props) =>{
+const Head = (props) =>{
   return(
   <div>
     <h1>
