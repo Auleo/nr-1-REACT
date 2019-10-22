@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Form = (props) => {
+const SearchCity = (props) => {
   return ( 
     <form onSubmit = {props.loadWeather} >
     <input type="text" name="city" placeholder="Wybór miasta"/> 
@@ -9,4 +9,4 @@ const Form = (props) => {
   )
 }
 
-export default Form;
+export default SearchCity;
